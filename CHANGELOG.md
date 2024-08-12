@@ -1,5 +1,11 @@
 # k8x
 
+## 0.0.3
+
+### Patch Changes
+
+- 4c6984a: fixed the awk script
+
 ## 0.0.2
 
 ### Patch Changes
