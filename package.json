@@ -18,7 +18,7 @@
     "cs-status": "pnpm changeset status --verbose",
     "cs-bump": "npm run test && pnpm changeset version && npm run cs-bump-reset-format-commit",
     "cs-bump-reset-format-commit": "git reset head~1 && npm run format-fix && git add . && git commit -m 'RELEASING: Releasing 1 package(s)'",
-    "cs-publish": "npm run build && cd dist && pnpm changeset publish"
+    "cs-pub": "npm run build && cd dist && pnpm changeset publish"
   },
   "contributors": ["Tal Kohavy <talkohavy@gmail.com> (@Tal Kohavy)"],
   "keywords": ["kubernetes"],
