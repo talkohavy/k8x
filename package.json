@@ -1,0 +1,45 @@
+{
+  "name": "k8x",
+  "version": "0.0.0",
+  "description": "A cli tool for switching between kubernetes contexts",
+  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf dist",
+    "lint": "eslint -c ./.eslintrc.json \"./src/**/*.ts\"",
+    "format-check": "prettier . --check",
+    "format-fix": "prettier . --write",
+    "test": "node --test",
+    "build": "node ./build.config.js",
+    "dev": "npm run build && node dist/index.js",
+    "cs-add": "pnpm changeset add",
+    "cs-status": "pnpm changeset status --verbose",
+    "cs-bump": "npm run test && pnpm changeset version && npm run cs-bump-reset-format-commit",
+    "cs-bump-reset-format-commit": "git reset head~1 && npm run format-fix && git add . && git commit -m 'RELEASING: Releasing 1 package(s)'",
+    "cs-publish": "cd dist && pnpm changeset publish",
+    "prepublishOnly": "npm run build"
+  },
+  "contributors": ["Tal Kohavy <talkohavy@gmail.com> (@Tal Kohavy)"],
+  "keywords": ["kubernetes"],
+  "author": "Tal Kohavy <talkohavy@gmail.com> (https://github.com/talkohavy)",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "restricted"
+  },
+  "dependencies": {
+    "inquirer": "^9.2.23"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.6.1",
+    "@changesets/cli": "^2.27.7",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.13.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-ezlint": "^1.2.0",
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5"
+  }
+}
