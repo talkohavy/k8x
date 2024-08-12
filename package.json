@@ -5,9 +5,7 @@
   "main": "index.js",
   "type": "module",
   "private": true,
-  "bin": {
-    "kctx": "./index.js"
-  },
+  "bin": "./index.js",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint -c ./.eslintrc.json \"./src/**/*.ts\"",
