@@ -1,5 +1,11 @@
 # k8x
 
+## 0.0.2
+
+### Patch Changes
+
+- dcea63c: bin is just a string
+
 ## 0.0.1
 
 ### Patch Changes
