@@ -1,5 +1,11 @@
 # k8x
 
+## 0.0.5
+
+### Patch Changes
+
+- 139f742: added more keywords
+
 ## 0.0.4
 
 ### Patch Changes
