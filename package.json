@@ -23,6 +23,10 @@
   "contributors": ["Tal Kohavy <talkohavy@gmail.com> (@Tal Kohavy)"],
   "keywords": ["kubernetes", "cli", "k8s", "k8x"],
   "author": "Tal Kohavy <talkohavy@gmail.com> (https://github.com/talkohavy)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/talkohavy/k8x"
+  },
   "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
