@@ -4,7 +4,7 @@
   <img src="https://i.ibb.co/K5nmM72/kubernetes-256x249.png" width="120" alt="k8s logo" />
 </p>
 
-**<p size="7" align="center" style="font-size:36px">Switch Context</p>**
+**<p align="center" style="font-size:36px">Switch Context</p>**
 
 A kubernetes tool to easily switch between contexts, or just display the current one.
 

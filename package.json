@@ -21,7 +21,7 @@
     "cs-pub": "npm run build && cd dist && pnpm changeset publish"
   },
   "contributors": ["Tal Kohavy <talkohavy@gmail.com> (@Tal Kohavy)"],
-  "keywords": ["kubernetes"],
+  "keywords": ["kubernetes", "cli", "k8s", "k8x"],
   "author": "Tal Kohavy <talkohavy@gmail.com> (https://github.com/talkohavy)",
   "license": "MIT",
   "publishConfig": {
