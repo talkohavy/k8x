@@ -1,5 +1,11 @@
 # k8x
 
+## 0.0.4
+
+### Patch Changes
+
+- f54daa5: updated the readme file
+
 ## 0.0.3
 
 ### Patch Changes
