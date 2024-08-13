@@ -1,5 +1,11 @@
 # k8x
 
+## 0.0.6
+
+### Patch Changes
+
+- 06adc70: added the link to the repository
+
 ## 0.0.5
 
 ### Patch Changes
