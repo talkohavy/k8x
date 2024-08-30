@@ -37,6 +37,7 @@
         "useSingleVarDeclarator": "off",
         "noParameterAssign": "off",
         "useNodejsImportProtocol": "off",
+        "noInferrableTypes": "off",
         "noVar": "off"
       }
     }
