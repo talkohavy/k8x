@@ -1,5 +1,11 @@
 # k8x
 
+## 0.0.7
+
+### Patch Changes
+
+- k8x is now a cross-platform CLI tool
+
 ## 0.0.6
 
 ### Patch Changes
