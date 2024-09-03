@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+import os from 'os';
 import inquirer, { type QuestionCollection } from 'inquirer';
 import { contextToTable } from './utils/index.js';
 
@@ -24,9 +25,15 @@ function printCurrentContext() {
 }
 
 async function changeContext(currentContextValue: string = 'b45ck_lmn') {
-  // WARNING!!! Will not work in windows because of usage in awk!
+  const resultsFilterer = os.platform() === 'win32' ? `Select-Object -Skip 1 | ForEach-Object {  
+      $fields = $_ -split 'a+'
+      if ($fields[1] -ne '${currentContextValue}') {
+          $fields[1]
+      }
+  }` : `awk 'NR > 1 {print $2}' | awk '!/^${currentContextValue}$/'`;
+
   const contextsAsString = execSync(
-    `kubectl config get-contexts | awk 'NR > 1 {print $2}' | awk '!/^${currentContextValue}$/'`,
+    `kubectl config get-contexts | ${resultsFilterer}`,
   ).toString();
   const contextChoices = contextsAsString.split('\n').filter(Boolean);
 
