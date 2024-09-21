@@ -1,7 +1,6 @@
-const color = (num: number) => `\x1b[${num}m%s\x1b[0m`;
-const wrapIn = (num: number, str: string) => `\x1b[${num}m${str}\x1b[0m`;
+const color = (num: number) => `\x1b[${num}m`;
 
-export const COLORS = {
+const COLORS = {
   black: color(30),
   blink: color(5),
   blue: color(34),
@@ -12,5 +11,7 @@ export const COLORS = {
   red: color(31),
   white: color(37),
   yellow: color(33),
-  underscore: (str: string) => wrapIn(4, str),
+  stop: '\x1b[0m',
 };
+
+export { COLORS };
