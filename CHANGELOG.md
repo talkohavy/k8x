@@ -1,5 +1,12 @@
 # k8x
 
+## 0.0.9
+
+### Patch Changes
+
+- title color is now yellow
+- no more looping around
+
 ## 0.0.8
 
 ### Patch Changes
