@@ -25,16 +25,17 @@ function printCurrentContext() {
 }
 
 async function changeContext(currentContextValue: string = 'b45ck_lmn') {
-  const resultsFilterer = os.platform() === 'win32' ? `Select-Object -Skip 1 | ForEach-Object {  
+  const resultsFilterer =
+    os.platform() === 'win32'
+      ? `Select-Object -Skip 1 | ForEach-Object {  
       $fields = $_ -split 'a+'
       if ($fields[1] -ne '${currentContextValue}') {
           $fields[1]
       }
-  }` : `awk 'NR > 1 {print $2}' | awk '!/^${currentContextValue}$/'`;
+  }`
+      : `awk 'NR > 1 {print $2}' | awk -v ctx=${currentContextValue} '$0 != ctx'`;
 
-  const contextsAsString = execSync(
-    `kubectl config get-contexts | ${resultsFilterer}`,
-  ).toString();
+  const contextsAsString = execSync(`kubectl config get-contexts | ${resultsFilterer}`).toString();
   const contextChoices = contextsAsString.split('\n').filter(Boolean);
 
   if (contextChoices.length) {
