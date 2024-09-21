@@ -1,4 +1,4 @@
-import { contextToTable } from './contextToTable';
+import { contextToTable } from './contextToTable.js';
 
 function printContextInTable(contextName: string) {
   const table = contextToTable(contextName);

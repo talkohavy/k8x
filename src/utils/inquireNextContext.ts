@@ -1,5 +1,5 @@
 import { Separator, select } from '@inquirer/prompts';
-import { getAllContexts } from './getAllContexts';
+import { getAllContexts } from './getAllContexts.js';
 
 async function inquireNextContext(currentContext: string = 'b45ck_lmn'): Promise<string | null> {
   const contextsArr = getAllContexts(currentContext);
