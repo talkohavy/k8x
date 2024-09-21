@@ -126,5 +126,5 @@
   },
   "compileOnSave": true,
   "exclude": ["node_modules"],
-  "include": ["src/index.ts"]
+  "include": ["src"]
 }
