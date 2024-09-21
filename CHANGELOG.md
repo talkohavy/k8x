@@ -1,5 +1,11 @@
 # k8x
 
+## 0.0.8
+
+### Patch Changes
+
+- context name can now contain special characters
+
 ## 0.0.7
 
 ### Patch Changes
