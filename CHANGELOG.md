@@ -1,5 +1,11 @@
 # k8x
 
+## 0.0.10
+
+### Patch Changes
+
+- do not fail when exiting the cli tool
+
 ## 0.0.9
 
 ### Patch Changes
