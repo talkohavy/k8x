@@ -35,11 +35,11 @@ async function buildPackageConfig() {
 }
 
 function cleanDistDirectory() {
-  console.log('[32m- Step 1:[39m clear the dist directory');
+  console.log(`[32m- Step 1:[39m clear the ${outDirName} directory`);
   if (os.platform() === 'win32') {
-    execSync('rd /s /q dist');
+    execSync(`rd /s /q ${outDirName}`);
   } else {
-    execSync('rm -rf dist');
+    execSync(`rm -rf ${outDirName}`);
   }
 }
 
@@ -79,8 +79,7 @@ function copyStaticFiles() {
     { filename: 'package.json', sourceDirPath: [], destinationDirPath: [] },
     { filename: '.npmignore', sourceDirPath: [], destinationDirPath: [] },
     { filename: '.npmrc', sourceDirPath: [], destinationDirPath: [], isAllowedToFail: true },
-      { filename: 'README.md', sourceDirPath: [], destinationDirPath: [] },
-
+    { filename: 'README.md', sourceDirPath: [], destinationDirPath: [] },
   ];
 
   filesToCopyArr.forEach(({ filename, sourceDirPath, destinationDirPath, isAllowedToFail }) => {
