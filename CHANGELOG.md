@@ -1,5 +1,13 @@
 # k8x
 
+## 1.0.1
+
+### Patch Changes
+
+- Should filter out the 'default' namespace when it's the current namespace.
+- Since a context may have different namespaces, and we're allowing choosing a namespace now, we no longer filter out the selected context from the list.
+- getAllContexts is no longer os based. Now using a pure k8x command.
+
 ## 1.0.0
 
 ### Major Changes
