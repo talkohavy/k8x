@@ -2,8 +2,8 @@ import { Separator, select } from '@inquirer/prompts';
 import { COLORS } from '../colors.js';
 import { getAllContexts } from './getAllContexts.js';
 
-export async function inquireNextContext(currentContext: string = 'b45ck_lmn'): Promise<string | null> {
-  const contextsArr = getAllContexts(currentContext);
+export async function inquireNextContext(): Promise<string | null> {
+  const contextsArr = getAllContexts();
 
   if (!contextsArr.length) return null;
 
@@ -11,9 +11,7 @@ export async function inquireNextContext(currentContext: string = 'b45ck_lmn'): 
     message: `${COLORS.yellow}✨ Switch to another context?${COLORS.stop}`,
     choices: [new Separator(), ...contextsArr, new Separator()],
     loop: false,
-    theme: {
-      prefix: '',
-    },
+    theme: { prefix: '' },
   });
 
   return contextToSwitchTo;

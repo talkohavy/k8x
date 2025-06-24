@@ -10,7 +10,7 @@ export async function runCliTool() {
 
     printContextInTable(currentContext, currentNamespace);
 
-    await switchContext(currentContext, currentNamespace);
+    await switchContext(currentNamespace);
   } catch (error) {
     console.error(error);
   }
