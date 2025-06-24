@@ -1,5 +1,15 @@
 # k8x
 
+## 0.1.0
+
+### Minor Changes
+
+- You can now use the tool to set a default namespace. 'default' will always appear as the first option.
+
+### Patch Changes
+
+- small - export is now in front of the function keyword
+
 ## 0.0.10
 
 ### Patch Changes
