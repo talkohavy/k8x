@@ -3,12 +3,9 @@ import { COLORS } from '../colors.js';
 import { inquireNextContext } from '../utils/inquireNextContext.js';
 import { inquireNextNamespace } from '../utils/inquireNextNamespace.js';
 
-export async function switchContext(
-  currentContext: string = 'b45ck_lmn',
-  currentNamespace: string = 'default',
-): Promise<void> {
+export async function switchContext(currentNamespace: string = 'default'): Promise<void> {
   try {
-    const contextToUse = await inquireNextContext(currentContext);
+    const contextToUse = await inquireNextContext();
 
     if (contextToUse === null) return;
 
