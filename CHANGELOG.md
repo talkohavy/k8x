@@ -1,5 +1,11 @@
 # k8x
 
+## 1.0.2
+
+### Patch Changes
+
+- BUGFIX: we actuall needed 2 commands. One is use-context to switch between contexts, and set-context, to set the default namespace.
+
 ## 1.0.1
 
 ### Patch Changes
