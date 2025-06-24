@@ -1,7 +1,7 @@
 import { execSync } from 'child_process';
 import os from 'os';
 
-function getAllContexts(currentContext: string) {
+export function getAllContexts(currentContext: string) {
   const resultsFilterer =
     os.platform() === 'win32'
       ? `Select-Object -Skip 1 | ForEach-Object {  
@@ -17,5 +17,3 @@ function getAllContexts(currentContext: string) {
 
   return contextsArr;
 }
-
-export { getAllContexts };

@@ -2,7 +2,7 @@ import { Separator, select } from '@inquirer/prompts';
 import { COLORS } from '../colors.js';
 import { getAllContexts } from './getAllContexts.js';
 
-async function inquireNextContext(currentContext: string = 'b45ck_lmn'): Promise<string | null> {
+export async function inquireNextContext(currentContext: string = 'b45ck_lmn'): Promise<string | null> {
   const contextsArr = getAllContexts(currentContext);
 
   if (!contextsArr.length) return null;
@@ -18,5 +18,3 @@ async function inquireNextContext(currentContext: string = 'b45ck_lmn'): Promise
 
   return contextToSwitchTo;
 }
-
-export { inquireNextContext };
