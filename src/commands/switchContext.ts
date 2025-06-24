@@ -9,12 +9,14 @@ export async function switchContext(currentNamespace: string = 'default'): Promi
 
     if (contextToUse === null) return;
 
-    const defaultNamespace = await inquireNextNamespace(contextToUse, currentNamespace);
+    const namespaceAsDefault = await inquireNextNamespace(contextToUse, currentNamespace);
 
-    const command = `kubectl config use-context ${contextToUse} --namespace ${defaultNamespace}`;
+    const switchContextCommand = `kubectl config use-context ${contextToUse}`;
+    const setNamespaceCommand = `kubectl config set-context --current --namespace ${namespaceAsDefault}`;
 
     try {
-      execSync(command).toString();
+      execSync(switchContextCommand);
+      execSync(setNamespaceCommand);
     } catch (error) {
       console.error(error);
     }
@@ -22,7 +24,7 @@ export async function switchContext(currentNamespace: string = 'default'): Promi
     console.log('');
     console.log(`✅ ${COLORS.green}Successfully switched! 🚀${COLORS.stop}`);
     console.log(`- ${COLORS.blue}Context: "${contextToUse}"${COLORS.stop}`);
-    console.log(`- ${COLORS.blue}Namespace: "${defaultNamespace}"${COLORS.stop}`);
+    console.log(`- ${COLORS.blue}Namespace: "${namespaceAsDefault}"${COLORS.stop}`);
     console.log('');
   } catch (_error) {
     console.log('⭐️ Reach for the stars 🚀');
