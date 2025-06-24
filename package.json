@@ -14,7 +14,8 @@
     "test": "node --test",
     "typecheck": "tsc -p tsconfig.json",
     "build": "node ./build.config.js",
-    "dev": "npm run build && node dist/index.js"
+    "build:dev": "export NODE_ENV=development && node ./build.config.js",
+    "dev": "npm run build:dev && node dist/index.js"
   },
   "contributors": ["Tal Kohavy <talkohavy@gmail.com> (@Tal Kohavy)"],
   "keywords": ["kubernetes", "cli", "k8s", "k8x"],
@@ -32,6 +33,7 @@
     "@biomejs/biome": "1.6.1",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^20.13.0",
+    "esbuild": "^0.25.5",
     "eslint": "^8.57.0",
     "eslint-plugin-ezlint": "^1.2.0",
     "husky": "^9.0.11",
