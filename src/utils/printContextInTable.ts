@@ -1,10 +1,8 @@
 import { contextToTable } from './contextToTable.js';
 
-function printContextInTable(contextName: string) {
-  const table = contextToTable(contextName);
+export function printContextInTable(contextName: string, namespace: string) {
+  const table = contextToTable(contextName, namespace);
 
   console.table(table);
   console.log('');
 }
-
-export { printContextInTable };

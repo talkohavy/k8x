@@ -1,16 +1,33 @@
 import { execSync } from 'child_process';
+import { COLORS } from '../colors.js';
 import { inquireNextContext } from '../utils/inquireNextContext.js';
+import { inquireNextNamespace } from '../utils/inquireNextNamespace.js';
 
-async function switchContext(currentContext: string = 'b45ck_lmn') {
+export async function switchContext(
+  currentContext: string = 'b45ck_lmn',
+  currentNamespace: string = 'default',
+): Promise<void> {
   try {
     const contextToUse = await inquireNextContext(currentContext);
 
     if (contextToUse === null) return;
 
-    console.log('\n', execSync(`kubectl config use-context ${contextToUse}`).toString());
+    const defaultNamespace = await inquireNextNamespace(contextToUse, currentNamespace);
+
+    const command = `kubectl config use-context ${contextToUse} --namespace ${defaultNamespace}`;
+
+    try {
+      execSync(command).toString();
+    } catch (error) {
+      console.error(error);
+    }
+
+    console.log('');
+    console.log(`✅ ${COLORS.green}Successfully switched! 🚀${COLORS.stop}`);
+    console.log(`- ${COLORS.blue}Context: "${contextToUse}"${COLORS.stop}`);
+    console.log(`- ${COLORS.blue}Namespace: "${defaultNamespace}"${COLORS.stop}`);
+    console.log('');
   } catch (_error) {
     console.log('⭐️ Reach for the stars 🚀');
   }
 }
-
-export { switchContext };

@@ -1,17 +1,23 @@
-class Context {
-  name;
-  constructor(props: any) {
-    const { name } = props;
+type ContextConstructorProps = {
+  name: string;
+  namespace: string;
+};
 
-    this.name = name;
+class Context {
+  Context;
+  Namespace;
+
+  constructor(props: ContextConstructorProps) {
+    const { name, namespace } = props;
+
+    this.Context = name;
+    this.Namespace = namespace;
   }
 }
 
-function contextToTable(context: string) {
-  const contextObj = new Context({ name: context });
-  const table = { 'Current context:': contextObj };
+export function contextToTable(context: string, namespace: string) {
+  const contextObj = new Context({ name: context, namespace });
+  const table = { Current: contextObj };
 
   return table;
 }
-
-export { contextToTable };

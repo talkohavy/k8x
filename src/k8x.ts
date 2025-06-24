@@ -1,17 +1,17 @@
 import { switchContext } from './commands/switchContext.js';
 import { getCurrentContext } from './utils/getCurrentContext.js';
+import { getCurrentNamespace } from './utils/getCurrentNamespace.js';
 import { printContextInTable } from './utils/printContextInTable.js';
 
-async function runCliTool() {
+export async function runCliTool() {
   try {
     const currentContext = getCurrentContext();
+    const currentNamespace = getCurrentNamespace();
 
-    printContextInTable(currentContext);
+    printContextInTable(currentContext, currentNamespace);
 
-    await switchContext(currentContext);
+    await switchContext(currentContext, currentNamespace);
   } catch (error) {
     console.error(error);
   }
 }
-
-export { runCliTool };
