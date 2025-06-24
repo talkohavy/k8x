@@ -14,7 +14,9 @@ export async function inquireNextNamespace(contextToUse: string, currentNamespac
     .map((namespaceWithGarbage) => namespaceWithGarbage.split(' ')[0]!)
     .filter(doNotIncludeDefaultAndCurrentNamespace);
 
-  namespaceOptions.unshift('default'); // <--- Add 'default' namespace as first option.
+  if (currentNamespace !== 'default') {
+    namespaceOptions.unshift('default'); // <--- Add 'default' namespace as first option.
+  }
 
   const namespaceToSwitchTo: string = await select({
     message: `${COLORS.yellow}✨ Set default namespace?${COLORS.stop}`,
