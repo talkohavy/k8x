@@ -22,11 +22,12 @@ import { build } from 'esbuild';
 const ROOT_PROJECT = process.cwd();
 const mode = process.env.NODE_ENV;
 const isProd = mode === 'production';
-const greenColor = '[32m';
-const blueColor = '[34m';
-const stopColor = '[39m';
-
 const outDirName = 'dist';
+const COLORS = {
+  green: '[32m',
+  blue: '[34m',
+  stop: '[39m',
+};
 
 buildPackageConfig();
 
@@ -39,11 +40,11 @@ async function buildPackageConfig() {
 
   manipulatePackageJsonFile(); // <--- must come AFTER copy of static files
 
-  console.log(`${os.EOL}${blueColor}DONE !!!${stopColor}${os.EOL}`);
+  console.log(`${os.EOL}${COLORS.blue}DONE !!!${COLORS.stop}${os.EOL}`);
 }
 
 function cleanDistDirectory() {
-  console.log(`${greenColor}- Step 1:${stopColor} clear the ${outDirName} directory`);
+  console.log(`${COLORS.green}- Step 1:${COLORS.stop} clear the ${outDirName} directory`);
   if (os.platform() === 'win32') {
     execSync(`rd /s /q ${outDirName}`);
   } else {
@@ -52,7 +53,7 @@ function cleanDistDirectory() {
 }
 
 async function runBuild() {
-  console.log(`${greenColor}- Step 2:${stopColor} build the output dir`);
+  console.log(`${COLORS.green}- Step 2:${COLORS.stop} build the output dir`);
 
   await build({
     entryPoints: ['src/index.ts'],
@@ -79,7 +80,7 @@ async function runBuild() {
 }
 
 function copyStaticFiles() {
-  console.log(`${greenColor}- Step 3:${stopColor} copy static files`);
+  console.log(`${COLORS.green}- Step 3:${COLORS.stop} copy static files`);
 
   const filesToCopyArr = [
     { filename: 'package.json', sourceDirPath: [], destinationDirPath: [] },
@@ -105,7 +106,7 @@ function copyStaticFiles() {
 }
 
 function manipulatePackageJsonFile() {
-  console.log(`${greenColor}- Step 5:${stopColor} copy & manipulate the package.json file`);
+  console.log(`${COLORS.green}- Step 5:${COLORS.stop} copy & manipulate the package.json file`);
 
   const packageJsonPath = path.resolve(ROOT_PROJECT, outDirName, 'package.json');
 
@@ -119,9 +120,9 @@ function manipulatePackageJsonFile() {
   packageJson.publishConfig.access = 'public';
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson));
 
-  console.log(`  • ${blueColor}changed${stopColor} from private to public`);
-  console.log(`  • ${blueColor}deleted${stopColor} "scripts" key`);
-  console.log(`  • ${blueColor}deleted${stopColor} "devDependencies" key`);
-  console.log(`  • ${blueColor}changed${stopColor} publishConfig access to public`);
-  console.log(`  • ${blueColor}package.json${stopColor} file written successfully!`);
+  console.log(`  • ${COLORS.blue}changed${COLORS.stop} from private to public`);
+  console.log(`  • ${COLORS.blue}deleted${COLORS.stop} "scripts" key`);
+  console.log(`  • ${COLORS.blue}deleted${COLORS.stop} "devDependencies" key`);
+  console.log(`  • ${COLORS.blue}changed${COLORS.stop} publishConfig access to public`);
+  console.log(`  • ${COLORS.blue}package.json${COLORS.stop} file written successfully!`);
 }
