@@ -1,8 +1,8 @@
 import { execSync } from 'child_process';
+import { build as esbuild } from 'esbuild';
 import fs, { cpSync } from 'fs';
 import os from 'os';
 import path from 'path';
-import { build as esbuild } from 'esbuild';
 
 /**
  * @typedef {{
@@ -141,6 +141,8 @@ function updateVersionTemplates(outDirName) {
   const showVersionFuncContent = fs.readFileSync(showVersionFuncPath, 'utf-8');
   const updatedShowVersionFuncContent = showVersionFuncContent.replace('{{version}}', version);
   fs.writeFileSync(showVersionFuncPath, updatedShowVersionFuncContent);
+
+  console.log('');
 }
 
 /**
