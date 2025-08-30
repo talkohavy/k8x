@@ -3,7 +3,6 @@
   "version": "1.0.2",
   "description": "A cli tool for switching between kubernetes contexts",
   "main": "index.js",
-  "type": "module",
   "private": true,
   "bin": "./index.js",
   "scripts": {
@@ -13,8 +12,8 @@
     "format-fix": "prettier . --write",
     "test": "node --test",
     "typecheck": "tsc -p tsconfig.json",
-    "build": "node ./build.config.js",
-    "build:dev": "export NODE_ENV=development && node ./build.config.js",
+    "build": "node ./build.config.mjs",
+    "build:dev": "export NODE_ENV=development && node ./build.config.mjs",
     "dev": "npm run build:dev && node dist/index.js"
   },
   "contributors": ["Tal Kohavy <talkohavy@gmail.com> (@Tal Kohavy)"],
