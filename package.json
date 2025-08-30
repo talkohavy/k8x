@@ -2,9 +2,19 @@
   "name": "k8x",
   "version": "1.0.2",
   "description": "A cli tool for switching between kubernetes contexts",
-  "main": "index.js",
+  "main": "only-the-path-in-bin-matters-in-cli.js",
   "private": true,
   "bin": "./index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./only-the-path-in-bin-matters-in-cli.js"
+      },
+      "require": {
+        "default": "./only-the-path-in-bin-matters-in-cli.js"
+      }
+    }
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint",
@@ -15,7 +25,8 @@
     "typecheck": "tsc -p tsconfig.json",
     "build": "node ./build.config.mjs",
     "build:dev": "export NODE_ENV=development && node ./build.config.mjs",
-    "dev": "npm run build:dev && node dist/index.js"
+    "dev": "npm run build:dev && node dist/index.js",
+    "install-as-cli": "npm install -g ./dist"
   },
   "contributors": ["Tal Kohavy <talkohavy@gmail.com> (@Tal Kohavy)"],
   "keywords": ["kubernetes", "cli", "k8s", "k8x"],
